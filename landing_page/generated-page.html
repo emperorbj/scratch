@@ -1,0 +1,553 @@
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inclusion Agenda | Special Needs Consult</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <!-- GSAP & Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* ... existing styles ... */
+        .text-gradient {
+            background: linear-gradient(to right, #818cf8, #c084fc, #f472b6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradientMove 5s linear infinite;
+        }
+
+        /* 3D Tilt Container */
+        .hero-image-container {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .hero-image-card {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+        }
+
+        .hero-image-glow {
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.4), transparent 70%);
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.6;
+            animation: pulseGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                opacity: 0.4;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Glassmorphism Card Override */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body class="antialiased overflow-x-hidden selection:bg-indigo-500/30">
+
+    <!-- Background Elements -->
+    <div class="bg-mesh">
+        <div class="blob blob-1 rounded-full"></div>
+        <div class="blob blob-2 rounded-full"></div>
+        <div class="blob blob-3 rounded-full"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-slate-950/70 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="iconify text-indigo-400" data-icon="lucide:layers" data-width="24"></span>
+                <span class="font-medium tracking-tight text-white text-sm">INCLUSION AGENDA</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-xs font-medium text-slate-400">
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#programs" class="hover:text-white transition-colors">Programs</a>
+                <a href="#policy" class="hover:text-white transition-colors">Policy</a>
+            </div>
+            <a href="#contact"
+                class="hidden md:flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs font-medium px-4 py-2 rounded-full transition-all border border-white/10">
+                <span>Book Consult</span>
+                <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-32 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            <!-- Left Column: Text -->
+            <div class="text-center lg:text-left order-2 lg:order-1">
+                <div
+                    class="hero-reveal inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                    </span>
+                    Accepting New Enrollments for 2026
+                </div>
+                <h1
+                    class="hero-reveal text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter text-white mb-6 leading-[1.1]">
+                    Empowering Growth Through <br class="hidden md:block">
+                    <span class="text-gradient">Inclusive Intervention.</span>
+                </h1>
+                <p
+                    class="hero-reveal text-slate-400 text-sm md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10 font-light">
+                    Specialized consultation combining natural remedies, behavioral training, and adaptive skills
+                    support tailored for individual needs.
+                </p>
+                <div class="hero-reveal flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#programs"
+                        class="w-full sm:w-auto px-8 py-3 bg-white text-slate-950 rounded-full font-medium text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2">
+                        View Programs
+                        <span class="iconify" data-icon="lucide:chevron-down" data-width="16"></span>
+                    </a>
+                    <a href="#policy"
+                        class="w-full sm:w-auto px-8 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-full font-medium text-sm transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
+                        Read Policy
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Profile Image 3D -->
+            <div
+                class="hero-reveal relative flex justify-center lg:justify-end order-1 lg:order-2 perspective-container">
+                <div class="hero-image-container relative w-[300px] h-[400px] sm:w-[350px] sm:h-[450px]">
+                    <!-- Glow Effect -->
+                    <div class="hero-image-glow"></div>
+
+                    <!-- 3D Card -->
+                    <div id="heroCard"
+                        class="hero-image-card relative w-full h-full rounded-3xl overflow-hidden glass-card group cursor-pointer">
+                        <img src="https://res.cloudinary.com/dpp46k83h/image/upload/v1766737254/ope_squfgg.jpg"
+                            alt="Opeyemitoke - Lead Consultant"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+
+                        <!-- Overlay Gradient -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60">
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div
+                            class="absolute bottom-6 left-6 right-6 backdrop-blur-md bg-white/10 border border-white/20 p-4 rounded-xl transform translate-z-10 transition-transform duration-300 group-hover:translate-y-[-5px]">
+                            <p class="text-white font-medium text-sm tracking-tight">Opeyemitoke</p>
+                            <p class="text-indigo-200 text-xs font-light">Lead Global Consultant</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal mb-12">
+                <h2 class="text-2xl md:text-3xl font-medium tracking-tight text-white mb-4">Comprehensive Services</h2>
+                <p class="text-slate-400 font-light max-w-xl">Holistic approaches designed to support development,
+                    behavior, and social integration.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service Item -->
+                <div
+                    class="reveal hover-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 group cursor-default">
+                    <div
+                        class="h-10 w-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4 group-hover:bg-emerald-500/20 transition-colors">
+                        <span class="iconify text-emerald-400" data-icon="lucide:leaf" data-width="20"
+                            style="stroke-width: 1.5;"></span>
+                    </div>
+                    <h3 class="text-white font-medium mb-2 tracking-tight">Natural Remedies</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light">Customized herbal and natural
+                        approaches to support physiological well-being.</p>
+                </div>
+
+                <!-- Service Item -->
+                <div
+                    class="reveal hover-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 group cursor-default">
+                    <div
+                        class="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4 group-hover:bg-blue-500/20 transition-colors">
+                        <span class="iconify text-blue-400" data-icon="lucide:school" data-width="20"
+                            style="stroke-width: 1.5;"></span>
+                    </div>
+                    <h3 class="text-white font-medium mb-2 tracking-tight">Inclusive Classroom</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light">Intervention strategies tailored for
+                        inclusive educational settings.</p>
+                </div>
+
+                <!-- Service Item -->
+                <div
+                    class="reveal hover-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 group cursor-default">
+                    <div
+                        class="h-10 w-10 rounded-lg bg-violet-500/10 flex items-center justify-center mb-4 group-hover:bg-violet-500/20 transition-colors">
+                        <span class="iconify text-violet-400" data-icon="lucide:user-check" data-width="20"
+                            style="stroke-width: 1.5;"></span>
+                    </div>
+                    <h3 class="text-white font-medium mb-2 tracking-tight">Individualized Plans</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light">Personalized learning plans (ILP)
+                        crafted for specific developmental goals.</p>
+                </div>
+
+                <!-- Service Item -->
+                <div
+                    class="reveal hover-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 group cursor-default">
+                    <div
+                        class="h-10 w-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors">
+                        <span class="iconify text-amber-400" data-icon="lucide:users" data-width="20"
+                            style="stroke-width: 1.5;"></span>
+                    </div>
+                    <h3 class="text-white font-medium mb-2 tracking-tight">Social Skills Training</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light">Behavioral guidance and social
+                        interaction development.</p>
+                </div>
+
+                <!-- Service Item -->
+                <div
+                    class="reveal hover-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 group cursor-default">
+                    <div
+                        class="h-10 w-10 rounded-lg bg-rose-500/10 flex items-center justify-center mb-4 group-hover:bg-rose-500/20 transition-colors">
+                        <span class="iconify text-rose-400" data-icon="lucide:heart-handshake" data-width="20"
+                            style="stroke-width: 1.5;"></span>
+                    </div>
+                    <h3 class="text-white font-medium mb-2 tracking-tight">Parent Coaching</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light">Expert guidance and support systems for
+                        parents and guardians.</p>
+                </div>
+
+                <!-- Service Item -->
+                <div
+                    class="reveal hover-card p-6 rounded-2xl bg-white/[0.02] border border-white/10 group cursor-default">
+                    <div
+                        class="h-10 w-10 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4 group-hover:bg-cyan-500/20 transition-colors">
+                        <span class="iconify text-cyan-400" data-icon="lucide:brain-circuit" data-width="20"
+                            style="stroke-width: 1.5;"></span>
+                    </div>
+                    <h3 class="text-white font-medium mb-2 tracking-tight">Adaptive Support</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed font-light">Sensory integration, communication aid,
+                        and adaptive skills training.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Pricing -->
+    <section id="programs" class="py-20 px-6 relative">
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-slate-950 via-indigo-950/20 to-slate-950 pointer-events-none">
+        </div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tighter text-white mb-4">Intervention Programs</h2>
+                <p class="text-slate-400 font-light">Choose the intensity and focus that best suits your needs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+                <!-- Basic Program -->
+                <div
+                    class="reveal hover-card flex flex-col p-8 rounded-3xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-medium text-white tracking-tight">Basic Intervention</h3>
+                        <p class="text-slate-400 text-xs mt-2">Essential support focus.</p>
+                    </div>
+                    <div class="mb-6 flex items-baseline gap-1">
+                        <span class="text-2xl text-white font-medium">₦360,000</span>
+                        <span class="text-slate-500 text-xs">/session</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-3 text-xs text-slate-300 font-light">
+                            <span class="iconify text-slate-500 mt-0.5" data-icon="lucide:check" data-width="14"></span>
+                            Inclusive classroom intervention
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-300 font-light">
+                            <span class="iconify text-slate-500 mt-0.5" data-icon="lucide:check" data-width="14"></span>
+                            Basic writing skills
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-300 font-light">
+                            <span class="iconify text-slate-500 mt-0.5" data-icon="lucide:clock" data-width="14"></span>
+                            2 times per week
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-300 font-light">
+                            <span class="iconify text-slate-500 mt-0.5" data-icon="lucide:calendar-clock"
+                                data-width="14"></span>
+                            16 hours per month
+                        </li>
+                    </ul>
+                    <a href="#contact"
+                        class="w-full py-3 rounded-xl border border-white/10 bg-white/5 text-white text-xs font-medium text-center hover:bg-white/10 transition-colors">
+                        Select Basic
+                    </a>
+                </div>
+
+                <!-- Full Program (Highlighted) -->
+                <div
+                    class="reveal hover-card flex flex-col p-8 rounded-3xl bg-slate-900/80 border border-indigo-500/50 relative shadow-2xl shadow-indigo-900/20 lg:-mt-4 lg:mb-4">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full">
+                        Recommended
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="text-lg font-medium text-white tracking-tight">Full Intervention</h3>
+                        <p class="text-indigo-200/70 text-xs mt-2">Comprehensive holistic care.</p>
+                    </div>
+                    <div class="mb-6 flex items-baseline gap-1">
+                        <span class="text-3xl text-white font-semibold">₦800,000</span>
+                        <span class="text-slate-500 text-xs">/month</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-3 text-xs text-slate-200 font-light">
+                            <span class="iconify text-indigo-400 mt-0.5" data-icon="lucide:check"
+                                data-width="14"></span>
+                            Natural herbal remedies &amp; Detox plans
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-200 font-light">
+                            <span class="iconify text-indigo-400 mt-0.5" data-icon="lucide:check"
+                                data-width="14"></span>
+                            Occupational &amp; Educational therapy
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-200 font-light">
+                            <span class="iconify text-indigo-400 mt-0.5" data-icon="lucide:check"
+                                data-width="14"></span>
+                            Specialized meal plans
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-200 font-light">
+                            <span class="iconify text-indigo-400 mt-0.5" data-icon="lucide:check"
+                                data-width="14"></span>
+                            Social &amp; Vocational skills training
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-200 font-light">
+                            <span class="iconify text-indigo-400 mt-0.5" data-icon="lucide:clock"
+                                data-width="14"></span>
+                            4 times per week
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-200 font-light">
+                            <span class="iconify text-indigo-400 mt-0.5" data-icon="lucide:calendar-clock"
+                                data-width="14"></span>
+                            32 hours per month
+                        </li>
+                    </ul>
+                    <a href="#contact"
+                        class="w-full py-3 rounded-xl bg-indigo-600 text-white text-xs font-medium text-center hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-500/25">
+                        Enroll Now
+                    </a>
+                </div>
+
+                <!-- Regular Program -->
+                <div
+                    class="reveal hover-card flex flex-col p-8 rounded-3xl bg-slate-900/50 border border-white/5 backdrop-blur-md">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-medium text-white tracking-tight">Regular Intervention</h3>
+                        <p class="text-slate-400 text-xs mt-2">Focused therapeutic approach.</p>
+                    </div>
+                    <div class="mb-6 flex items-baseline gap-1">
+                        <span class="text-2xl text-white font-medium">₦450,000</span>
+                        <span class="text-slate-500 text-xs">/session</span>
+                    </div>
+                    <ul class="space-y-3 mb-8 flex-1">
+                        <li class="flex items-start gap-3 text-xs text-slate-300 font-light">
+                            <span class="iconify text-slate-500 mt-0.5" data-icon="lucide:check" data-width="14"></span>
+                            Inclusive classroom intervention
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-300 font-light">
+                            <span class="iconify text-slate-500 mt-0.5" data-icon="lucide:check" data-width="14"></span>
+                            Educational therapy
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-300 font-light">
+                            <span class="iconify text-slate-500 mt-0.5" data-icon="lucide:clock" data-width="14"></span>
+                            3 times per week
+                        </li>
+                        <li class="flex items-start gap-3 text-xs text-slate-300 font-light">
+                            <span class="iconify text-slate-500 mt-0.5" data-icon="lucide:calendar-clock"
+                                data-width="14"></span>
+                            24 hours per month
+                        </li>
+                    </ul>
+                    <a href="#contact"
+                        class="w-full py-3 rounded-xl border border-white/10 bg-white/5 text-white text-xs font-medium text-center hover:bg-white/10 transition-colors">
+                        Select Regular
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Policies Section -->
+    <section id="policy" class="py-20 px-6 border-t border-white/5 bg-slate-950">
+        <div class="max-w-3xl mx-auto">
+            <div class="reveal bg-slate-900/40 rounded-3xl border border-white/5 p-8 md:p-12 overflow-hidden relative">
+                <!-- Decorative Icon -->
+                <span class="iconify absolute -top-6 -right-6 text-white/5" data-icon="lucide:file-shield"
+                    data-width="150"></span>
+
+                <h2 class="text-2xl font-medium tracking-tight text-white mb-8">Enrollment &amp; Payment Policy</h2>
+
+                <div class="space-y-8">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 mt-1">
+                            <div
+                                class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                                <span class="iconify" data-icon="lucide:wallet" data-width="16"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-white text-sm font-medium mb-2">Payment Structure</h3>
+                            <p class="text-slate-400 text-xs font-light leading-relaxed">
+                                Enrollment requires a one-time commitment. Payment is made in two installments to ensure
+                                flexibility while maintaining service delivery:
+                            </p>
+                            <ul class="mt-3 space-y-2 text-xs text-slate-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                    50% due at the beginning of the month
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                    Balance due on or before the 24th of the same month
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 mt-1">
+                            <div
+                                class="w-8 h-8 rounded-full bg-rose-500/20 flex items-center justify-center text-rose-400">
+                                <span class="iconify" data-icon="lucide:alert-circle" data-width="16"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-white text-sm font-medium mb-2">Service Consistency</h3>
+                            <p class="text-slate-400 text-xs font-light leading-relaxed">
+                                Consistency is essential for effective outcomes. Kindly note that if payment terms
+                                cannot be met, we will be unable to commence or continue intervention.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-white/5 text-center">
+                    <p class="text-slate-500 text-xs font-light italic">Thank you for your understanding and
+                        cooperation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & CTA -->
+    <footer id="contact" class="py-12 px-6 border-t border-white/5 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="reveal text-4xl md:text-5xl font-medium tracking-tighter text-white mb-6">Let's start the
+                journey.</h2>
+            <p class="reveal text-slate-400 font-light mb-10">Happy New Year 2026</p>
+
+            <button
+                class="reveal px-8 py-4 bg-white text-slate-950 rounded-full font-medium text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]">
+                Contact for Enrollment
+            </button>
+
+            <div class="reveal mt-16 pt-8 flex flex-col items-center gap-2 border-t border-white/5">
+                <span class="text-indigo-400 font-script text-2xl" style="font-family: cursive;">Opeyemitoke</span>
+                <p class="text-slate-500 text-[10px] uppercase tracking-widest font-medium">Lead Global Consultant</p>
+                <p class="text-slate-600 text-[10px] mt-4">© 2026 Inclusion Agenda Special Needs Consult</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero Entrance
+            const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+            heroTl.from(".hero-reveal", {
+                y: 50,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.15,
+                delay: 0.2
+            });
+
+            // Scroll Reveal
+            gsap.utils.toArray(".reveal").forEach(target => {
+                gsap.from(target, {
+                    scrollTrigger: {
+                        trigger: target,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 40,
+                    opacity: 0,
+                    duration: 1,
+                    ease: "power2.out"
+                });
+            });
+
+            // 3D Tilt Effect
+            const container = document.querySelector('.hero-image-container');
+            const card = document.querySelector('.hero-image-card');
+            
+            if (container && card) {
+                container.addEventListener('mousemove', (e) => {
+                    const rect = container.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -15; // Max 15deg
+                    const rotateY = ((x - centerX) / centerX) * 15;
+                    
+                    gsap.to(card, {
+                        transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        transform: `rotateX(0deg) rotateY(0deg)`,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                });
+            }
+
+            // Parallax Blobs
+            gsap.to(".blob-1", { y: 100, scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: 1 } });
+            gsap.to(".blob-2", { y: -100, scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: 1.5 } });
+            gsap.to(".blob-3", { y: 50, scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: 2 } });
+        });
+    </script>
+
+</body>
+
+</html>
